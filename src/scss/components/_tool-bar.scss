@@ -1,0 +1,336 @@
+.tool-bar {
+    grid-area: span 1 / span 1;
+    background-color: $black-two;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 80px;
+
+    .bar {
+        margin: 19px 0 0 60px;
+        &__time {
+            color: $white;
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-weight: $regular;
+            padding-bottom: 10px;
+            display: block;
+        }
+        &__timeline {
+            height: 4px;
+            width: 112px;
+            background-color: $gray-2;
+            border-radius: 2px;
+            position: relative;
+            margin-bottom: 7px;
+        }
+        &__progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $semi-white;
+            width: 56%;
+            border-radius: 2px;
+            height: 4px;
+        }
+        &__description {
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Roboto';
+            font-size: 11px;
+            font-weight: $regular;
+        }
+        &__arrow {
+            display: none;
+        }
+        &__group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+    }
+
+    .user-tools {
+        display: flex;
+        justify-content: flex-end;
+        vertical-align: middle;
+        margin: auto 0;
+
+        &__item {
+            &:nth-child(3):hover .notification-dropdown {
+                opacity: 1;
+                visibility: visible;
+                transition: all $time;
+            }
+            &:nth-child(2):hover .message-dropdown {
+                opacity: 1;
+                visibility: visible;
+                transition: all $time;
+            }
+            &__button {
+                margin: 12px;
+                height: 42px;
+                width: 42px;
+                border-radius: 50%;
+                position: relative;
+                display: block;
+                background-color: $gray-3;
+                &:hover {
+                    background-color: $gray-4;
+                    -webkit-transition: all $time ease-in-out;
+                    -o-transition: all $time ease-in-out;
+                    transition: all $time ease-in-out;
+                }
+                &:hover .user-tools__item__img {
+                    & path,
+                    & g {
+                        fill: $white;
+                    }
+                }
+            }
+            &__button-active {
+                background-color: $white;
+            }
+            &__img-active {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                & path,
+                & g {
+                    fill: $black;
+                    fill-opacity: 1;
+                }
+            }
+            &__img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                & path,
+                & g {
+                    fill: $gray-5;
+                }
+            }
+            &__img-get {
+                & path,
+                & g {
+                    fill: $yellow;
+                }
+            }
+            &__notification {
+                color: $gray;
+                font-family: Roboto;
+                font-size: 10px;
+                font-weight: $bold;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+.notification-dropdown {
+    background-color: $white;
+    position: absolute;
+    margin-top: 7px;
+    right: 102px;
+    z-index: 3000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 7px 7px;
+    visibility: hidden;
+    opacity: 0;
+    &__item {
+        height: 70px;
+        width: 250px;
+        &:hover {
+            background-color: $semi-white;
+            transition: all $time-half;
+        }
+        &__data {
+            color: $gray-6;
+            font-family: Roboto;
+            font-size: 10px;
+            display: block;
+            font-weight: $regular;
+            padding: 11px 0 16px 20px;
+        }
+        &__description {
+            color: $black-two;
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: $regular;
+            margin-left: 20px;
+
+        }
+        &:last-child {
+            height: 43px;
+            display: flex;
+        }
+        &__dots {
+            margin: auto 15px;
+        }
+        &__arrow {
+            margin: auto 0 auto 55px;
+        }
+        &__all {
+            color: $black-two;
+            font-family: $font;
+            font-size: 11px;
+            font-weight: $bold;
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+            margin: auto 0;
+        }
+    }
+}
+
+.message-dropdown {
+    background-color: $white;
+    position: absolute;
+    margin-top: 7px;
+    right: 177px;
+    z-index: 3000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 7px 7px;
+    visibility: hidden;
+    opacity: 0;
+    &__item {
+        height: 70px;
+        width: 250px;
+        display: grid;
+        grid: repeat(2, 35px) / 1fr 2fr 2fr;
+        &:hover {
+            background-color: $semi-white;
+            transition: all $time-half;
+        }
+        &__photo {
+            grid-area: span 2/ span 1;
+            margin: auto;
+            height: 42px;
+            width: 42px;
+        }
+        &__name {
+            grid-area: span 1/ span 1;
+            color: $gray-6;
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: $regular;
+            padding-top: 14px;
+        }
+        &__data {
+            grid-area: span 1/ span 1;
+            color: $gray-6;
+            font-family: Roboto;
+            font-size: 10px;
+            display: block;
+            font-weight: $regular;
+            text-align: right;
+            padding: 14px 17px 0 0;
+        }
+        &__description {
+            grid-area: span 1/ span 2;
+            color: $black-two;
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: $regular;
+            padding-top: 3px;
+        }
+        &:last-child {
+            height: 43px;
+            display: flex;
+        }
+        &__dots {
+            margin: auto 15px;
+        }
+        &__arrow {
+            margin: auto 0 auto 55px;
+        }
+        &__all {
+            color: $black-two;
+            font-family: $font;
+            font-size: 11px;
+            font-weight: $bold;
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+            margin: auto 0;
+        }
+    }
+}
+
+@media (max-width: $tablet-landscape-width) {
+    .tool-bar {
+        height: 50px;
+        .user-tools__item__button {
+            margin: 0;
+            height: 37px;
+            width: 37px;
+            background: transparent;
+        }
+        .user-tools__item__img {
+            height: 17px;
+            width: auto;
+        }
+        .bar {
+            margin: auto 10px;
+            &__description {
+                display: none;
+            }
+            &__timeline {
+                width: 60px;
+            }
+            &__arrow {
+                display: flex;
+                align-items: flex-start;
+                padding-left: 6px;
+                &:hover ~ {
+                    .bar__description {
+                        display: flex;
+                    }
+                }
+            }
+            &__group {
+                display: flex;
+                flex-direction: row;
+            }
+            &__description {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+                background-color: $white;
+                color: $black;
+                font-family: Roboto;
+                font-size: 11px;
+                font-weight: $regular;
+                width: 147px;
+                height: 50px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                z-index: 5000;
+            }
+        }
+    }
+    .message-dropdown,
+    .notification-dropdown {
+        margin-top: 7px;
+        right: 80px;
+    }
+}
+
+@media (max-width: $phone-landscape-width) {
+    .tool-bar {
+
+        .user-tools__item__button {
+            margin: 0;
+        }
+    }
+    .message-dropdown,
+    .notification-dropdown {
+        margin-top: 11px;
+        right: 40px;
+    }
+
+}
